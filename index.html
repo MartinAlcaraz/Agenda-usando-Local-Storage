@@ -27,7 +27,8 @@
             <input type="text" name="task" placeholder="Nombre de la tarea" 
               class="inputForm" autocomplete="off"  data-form-input   />
             
-            <input type="datetime-local" data-form-date placeholder="YYYY/MM/DD"/>
+            <input type="datetime-local" value="2022-01-01T12:00" class="calendario" data-form-date 
+            placeholder="fecha"/>
             
             <button type="submit" class="btnCreate" data-form-btn>
               Agregar <i class="fas fa-save"></i>
@@ -35,10 +36,11 @@
           </form>
         </div>
         <ul class="cardsList" data-list>
-          <li class="card">
-            <i class="far	fa-check-circle"></i>
-              Tarea a realizar
-            <i class="far	fa-trash-alt"></i>            
+          <!-- <li class="card" >
+            <i class="far	fa-check-circle icon" data-check></i>
+              <span>Tarea a realizar</span>
+              <span>Fecha</span>
+            <i class="far	fa-trash-alt icon trashIcon" ></i>             -->
           </li>
         </ul>
       </div>
