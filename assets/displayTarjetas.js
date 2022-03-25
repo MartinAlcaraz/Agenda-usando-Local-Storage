@@ -1,7 +1,7 @@
 import { agregar } from "./agregar.js";
 import { crearTarjeta } from "./crearTarjeta.js";
 import { obtenerFechasOrdenadas } from "./ordenar-fechas.js";
-
+import { crearItemFecha } from "./crear-item-fecha.js";
 
 export const displayTarjetas = () => {
 
@@ -15,6 +15,10 @@ export const displayTarjetas = () => {
     const arrayFechasOrdenadas = obtenerFechasOrdenadas(listaTarjetas);
 
     arrayFechasOrdenadas.forEach(fecha => {
+                
+        const tarjetaFecha = crearItemFecha(fecha);
+        agregar(tarjetaFecha);        
+
         let datos;                          //  contiene los datos de cada tarjeta
         for (let i=0 ; i < listaTarjetas.length; i++){
             datos = listaTarjetas[i];

@@ -1,17 +1,28 @@
 import { actualizarLista } from "./actualizar-lista.js";
+import { abrirTarjeta } from "./abrir-tarjeta.js";
 
 export const crearTarjeta = ({id, completo, texto, fecha}) => {
 
     const tarjeta = document.createElement("li");
     const textoTarjeta = document.createElement("span");
-    const date = document.createElement("span");
+    
     const iconoCheck = document.createElement("i");
     const iconoEliminar = document.createElement("i");
 
     tarjeta.classList.add("card");
     tarjeta.setAttribute("id", id);
+    textoTarjeta.classList.add("card__texto");
     textoTarjeta.innerHTML = texto;
-    date.innerHTML = fecha;
+
+    // agrega el eventHandler a la trajeta para abrirla
+
+    tarjeta.addEventListener("click", (event) => {
+        try {
+            abrirTarjeta(event);
+        }catch{
+
+        }      
+    });
 
     iconoCheck.classList.add("far", "fa-check-circle", "icon");
     // agrega el eventHandler al icono
@@ -33,7 +44,7 @@ export const crearTarjeta = ({id, completo, texto, fecha}) => {
 
     tarjeta.appendChild(iconoCheck);
     tarjeta.appendChild(textoTarjeta);
-    tarjeta.appendChild(date);
+    
     tarjeta.appendChild(iconoEliminar);
     
     return tarjeta;

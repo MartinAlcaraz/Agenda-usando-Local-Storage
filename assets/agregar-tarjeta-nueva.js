@@ -10,7 +10,6 @@ export const agregarNuevaTarjeta = (event) => {
     const fecha = document.querySelector("[data-form-date]").value;
     const fechaMoment= moment(fecha).format("DD/MM/YYYY");
 
-    console.log(fechaMoment);
     if ( (textoEntrada == "") || (fechaMoment == "Invalid date") ) {
         return;
     }
