@@ -1,5 +1,4 @@
-import { actualizarTarjetas } from "./actualizar-tarjetas.js";
-
+import { actualizarLista } from "./actualizar-lista.js";
 
 export const crearTarjeta = ({id, completo, texto, fecha}) => {
 
@@ -15,19 +14,21 @@ export const crearTarjeta = ({id, completo, texto, fecha}) => {
     date.innerHTML = fecha;
 
     iconoCheck.classList.add("far", "fa-check-circle", "icon");
-    iconoCheck.addEventListener("click", () => {
+    // agrega el eventHandler al icono
+    iconoCheck.addEventListener("click", () => {        
         iconoCheck.classList.toggle("completeIcon");
-        actualizarTarjetas(id, "checkear");
+        actualizarLista(id, "checkear");
     });
 
     iconoEliminar.classList.add("far", "fa-trash-alt", "icon", "trashIcon");
+    // agrega el eventHandler al icono
     iconoEliminar.addEventListener("click", () => {
         iconoCheck.parentElement.remove();
-        actualizarTarjetas(id, "borrar");
+        actualizarLista(id, "borrar");       
     });
 
     if (completo){
-        iconoCheck.classList.toggle("completeIcon");
+        iconoCheck.classList.add("completeIcon");
     }
 
     tarjeta.appendChild(iconoCheck);

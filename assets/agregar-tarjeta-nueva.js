@@ -1,16 +1,20 @@
-import { crearTarjeta } from "./crearTarjeta.js";
+
+import { displayTarjetas } from "./displayTarjetas.js";
 
 
-export const agregar = (event) => {
+export const agregarNuevaTarjeta = (event) => {
     
     event.preventDefault();
 
-    //const botonAgregar = document.querySelector("[data-form-input]");
     const textoEntrada = document.querySelector("[data-form-input]").value;
     const fecha = document.querySelector("[data-form-date]").value;
     const fechaMoment= moment(fecha).format("DD/MM/YYYY");
-    const card = document.querySelector("[data-list]");
-    
+
+    console.log(fechaMoment);
+    if ( (textoEntrada == "") || (fechaMoment == "Invalid date") ) {
+        return;
+    }
+
     const listaTarjetas = JSON.parse( localStorage.getItem("agenda-web") ) || [];
 
     const objTarjeta = {
@@ -19,16 +23,12 @@ export const agregar = (event) => {
         texto: textoEntrada,
         fecha: fechaMoment
     }
-
-    console.log(fecha);
-
-    const tarjeta = crearTarjeta(objTarjeta);
-
+    
     listaTarjetas.push(objTarjeta);    
     
     localStorage.setItem("agenda-web", JSON.stringify(listaTarjetas));
 
-    card.appendChild(tarjeta);   
-    
+    displayTarjetas();
+ 
     
 }

@@ -1,5 +1,5 @@
 
-export const actualizarTarjetas = (id, accion) => {
+export const actualizarLista = (id, accion) => {
 
     const listaTarjetas = JSON.parse(localStorage.getItem("agenda-web"));
 
