@@ -1,3 +1,4 @@
+import { displayTarjetas } from "./displayTarjetas.js";
 
 export const actualizarLista = (id, accion) => {
 
@@ -23,6 +24,7 @@ export const actualizarLista = (id, accion) => {
     }
 
     localStorage.setItem("agenda-web", JSON.stringify(listaTarjetas));
+    displayTarjetas();
 
 }
 

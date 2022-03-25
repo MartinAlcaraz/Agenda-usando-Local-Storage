@@ -6,11 +6,17 @@ export const agregarNuevaTarjeta = (event) => {
     
     event.preventDefault();
 
-    const textoEntrada = document.querySelector("[data-form-input]").value;
-    const fecha = document.querySelector("[data-form-date]").value;
-    const fechaMoment= moment(fecha).format("DD/MM/YYYY");
+    const textoEntrada = document.querySelector("[data-form-input]");
+    const fecha = document.querySelector("[data-form-date]");
+    const fechaMoment= moment(fecha.value).format("DD/MM/YYYY");
+    const alert =document.querySelector("[data-alert]");
 
-    if ( (textoEntrada == "") || (fechaMoment == "Invalid date") ) {
+    if ( (textoEntrada.value == "") || (fechaMoment == "Invalid date") ) {
+        
+        alert.classList.add("alert-show");
+        textoEntrada.value = "";
+        fecha.value = "2022-01-01T12:00";
+        
         return;
     }
 
@@ -19,15 +25,18 @@ export const agregarNuevaTarjeta = (event) => {
     const objTarjeta = {
         id : uuid.v4(),             // id unico generado por libreria
         completo: false,
-        texto: textoEntrada,
+        texto: textoEntrada.value,
         fecha: fechaMoment
     }
     
     listaTarjetas.push(objTarjeta);    
-    
+       
     localStorage.setItem("agenda-web", JSON.stringify(listaTarjetas));
-
+        
+        // reiniciar inputs
+    textoEntrada.value = "";
+    fecha.value = "2022-01-01T12:00";
+    
     displayTarjetas();
- 
     
 }
