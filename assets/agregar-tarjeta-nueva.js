@@ -14,9 +14,7 @@ export const agregarNuevaTarjeta = (event) => {
     if ( (textoEntrada.value == "") || (fechaMoment == "Invalid date") ) {
         
         alert.classList.add("alert-show");
-        textoEntrada.value = "";
-        fecha.value = "2022-01-01T12:00";
-        
+        textoEntrada.value = "";        
         return;
     }
 
@@ -34,9 +32,10 @@ export const agregarNuevaTarjeta = (event) => {
     localStorage.setItem("agenda-web", JSON.stringify(listaTarjetas));
         
         // reiniciar inputs
-    textoEntrada.value = "";
-    fecha.value = "2022-01-01T12:00";
     
+    
+    textoEntrada.value = "";
+
     displayTarjetas();
     
 }
